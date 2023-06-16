@@ -20,4 +20,13 @@ describe('contact form', function () {
 		cy.get('@submitBtn').contains('Sending...');
 		cy.get('@submitBtn').should('have.attr', 'disabled');
 	});
+	it('should validate form input', function () {
+		cy.visit('http://localhost:5173/about');
+		cy.get('[data-cy="contact-input-message"]').click();
+		cy.get('[data-cy="contact-input-message"]').then((el) => {
+			expect(el).to.not.have.attr('disabled');
+			expect(el.text()).to.not.equal('Sending...');
+			cy.get('[data-cy="contact-btn-submit"]').contains('Send Message');
+		});
+	});
 });
