@@ -6,11 +6,9 @@ describe('contact form', function () {
 		cy.get('[data-cy="contact-input-message"]').type('Hi my name is Karson');
 		cy.get('[data-cy="contact-input-name"]').type('Zidane');
 		cy.get('[data-cy="contact-input-email"]').type('zidaneinnis@email.com');
-		cy.get('[data-cy="contact-btn-submit"]').contains('Send Message');
-		cy.get('[data-cy="contact-btn-submit"]').should(
-			'not.have.attr',
-			'disabled'
-		);
+		cy.get('[data-cy="contact-btn-submit"]')
+			.contains('Send Message')
+			.should('not.have.attr', 'disabled');
 		cy.get('[data-cy="contact-btn-submit"]').click();
 		cy.get('[data-cy="contact-btn-submit"]').contains('Sending...');
 		cy.get('[data-cy="contact-btn-submit"]').should('have.attr', 'disabled');
