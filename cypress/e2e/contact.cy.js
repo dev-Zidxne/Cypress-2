@@ -28,5 +28,33 @@ describe('contact form', function () {
 			expect(el.text()).to.not.equal('Sending...');
 			cy.get('[data-cy="contact-btn-submit"]').contains('Send Message');
 		});
+
+		cy.get('[data-cy="contact-input-message"]')
+			.focus()
+			.blur()
+			.parent()
+			.then((el) => {
+				expect((el) => {
+					expect(el.attr('class')).to.contains('invalid');
+				});
+			});
+		cy.get('[data-cy="contact-input-name"]')
+			.focus()
+			.blur()
+			.parent()
+			.then((el) => {
+				expect((el) => {
+					expect(el.attr('class')).to.contains('invalid');
+				});
+			});
+		cy.get('[data-cy="contact-input-email"]')
+			.focus()
+			.blur()
+			.parent()
+			.then((el) => {
+				expect((el) => {
+					expect(el.attr('class')).to.contains('invalid');
+				});
+			});
 	});
 });
