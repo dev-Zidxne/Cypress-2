@@ -29,7 +29,8 @@ describe('contact form', function () {
 			cy.get('[data-cy="contact-btn-submit"]').contains('Send Message');
 		});
 
-		cy.get('[data-cy="contact-input-message"]')
+		cy.get('[data-cy="contact-input-message"]').as('msgInput');
+		cy.get('@msgInput')
 			.focus()
 			.blur()
 			.parent()
