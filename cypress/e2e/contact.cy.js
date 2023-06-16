@@ -9,6 +9,8 @@ describe('contact form', function () {
 			expect(el.attr('disabled')).to.be.undefined;
 			expect(el.text()).to.eq('Send Message');
 		});
+
+		cy.screenshot();
 		cy.get('[data-cy="contact-input-email"]').type(
 			'zidaneinnis@email.com{enter}'
 		);
@@ -17,6 +19,7 @@ describe('contact form', function () {
 		// 	.contains('Send Message')
 		// 	.should('not.have.attr', 'disabled');
 		// cy.get('@submitBtn').click();
+		cy.screenshot();
 		cy.get('@submitBtn').contains('Sending...');
 		cy.get('@submitBtn').should('have.attr', 'disabled');
 	});
@@ -28,7 +31,6 @@ describe('contact form', function () {
 			expect(el.text()).to.not.equal('Sending...');
 			cy.get('[data-cy="contact-btn-submit"]').contains('Send Message');
 		});
-
 		cy.get('[data-cy="contact-input-message"]').as('msgInput');
 		cy.get('@msgInput')
 			.focus()
