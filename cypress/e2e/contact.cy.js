@@ -54,10 +54,8 @@ describe('contact form', function () {
 			.focus()
 			.blur()
 			.parent()
-			.then((el) => {
-				expect((el) => {
-					expect(el.attr('class')).to.contains('invalid');
-				});
+			.should((el) => {
+				expect(el.attr('class')).to.contains('invalid');
 			});
 	});
 });
